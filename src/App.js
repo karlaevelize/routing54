@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import { Switch, Route } from "react-router-dom";
+import Homepage from "./pages/Homepage"
+import DiscoverPage from "./pages/DiscoverPage"
+import DetailsPage from './pages/DetailsPage';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+        {/* here you define your params, in this case movieId */}
+        {/* you can call the params whatever you want */}
+        <Route path="/movie/:movieId" component={DetailsPage}/>
+        <Route path="/discover" component={DiscoverPage}/>
+        <Route exact path="/" component={Homepage}/>
+      </Switch>
     </div>
   );
 }
